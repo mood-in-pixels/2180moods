@@ -1,0 +1,249 @@
+ 
+/* Slide holds div => .item ==> .pixel*/
+
+.slide, .valencePixel {
+    max-width: 100px;
+    height: 100px;
+    left: 35%;
+}
+.pixel {
+    height: 250px;
+    width: 250px;
+    margin: 30px;
+    float: center;
+    border-radius: 25px;
+}
+span.valence {
+    .img-title {
+        position: absolute;
+        top: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        /*opacity: 0;*/
+        display: none;
+        /* comment this out for CSS hover */
+        /*background-color: #333;
+        transition: all 0.5s ease;*/
+    }
+}
+
+
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.hiden {
+    display: none;
+}
+
+.main li {
+  width: 3.1%;
+  /*height: 25px;*/
+  padding-top: 3.1%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  /*font-size: 18px;*/
+  float: left;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all .2s ease-in;
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  -webkit-transition: all .2s ease-in;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  line-height: 0;
+
+}
+
+.main .cEmpty {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: default;
+}
+
+.deactivate {
+  opacity: 0.5;
+  -webkit-filter: grayscale(70%);
+  filter: grayscale(70%);
+}
+
+.cDate {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  bottom: 0;
+  right: 0;
+  text-align: left;
+  font-size: 0.25vw;
+  opacity: 0;
+}
+
+.cLocation {
+  position: absolute;
+  top: 40%;
+  left: 5%;
+  bottom: 0;
+  right: 0;
+  text-align: left;
+
+  font-size: 0.4vw;
+  opacity: 0;
+  }
+
+.cLabel {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  font-size: 1vw;
+  }
+
+
+
+/*////////////////////////////////////////////////////////////////////////*/
+/*Section that specifies how file should act when user hovers on list item*/
+
+
+.main li:hover {
+  -webkit-transform: scale(4);
+          transform: scale(4);
+  z-index: 100;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.main .cEmpty:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: none;
+          transform: none;
+}
+
+.main li:hover .cDate{
+  opacity: 100;
+}
+
+.main li:hover .cLocation{
+  opacity: 100;
+}
+
+
+/*////////////////////////////////////////////////////////////////////////*/
+/*            Section that specifies mood types and mood colors           */
+
+/*Undefined*/
+.type-0 {
+  background: #D3D3D3;
+}
+
+/*Happy*/
+.type-1 {
+  background: #4caf50;
+}
+/*Stressed*/
+.type-2 {
+  background: #ffeb3b;
+}
+/*Angry*/
+.type-3 {
+  background: #B71C1C ;
+}
+/*Content*/
+.type-4 {
+background: #00bcd4 ;
+}
+/*Depressed*/
+.type-5 {
+  background: #17558C ;
+}
+/*Energetic*/
+.type-6 {
+  background: #ff9800;
+}
+/*Guilty*/
+.type-7 {
+  background: #673ab7 ;
+}
+/*Compassionate*/
+.type-8 {
+  background: #EC407A;
+}
+.cEmpty, .cLabel {
+  background: #ffffff;
+}
+
+
+
+
+/*////////////////////////////////////////////////////////////////////////*/
+/*              CSS for legend and all it's content                       */
+
+
+.legend {
+  position: absolute;
+  top: 20px;
+  left: 100%;
+  width:350px;
+  padding: 10px;
+  font-size: 11px;
+  background: #f1edec;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  -webkit-box-shadow: inset 0 1px 1px white, inset 0 -5px 3px #dddcdb, 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 1px 1px white, inset 0 -5px 3px #dddcdb, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/*.legend:after {
+  content: "";
+  display: table;
+  clear: table;
+}*/
+
+.legend ul {
+  float: left;
+}
+
+.legend .list-2 {
+  margin-left: 40px;
+  width: 200px;
+}
+
+.legend .list-1 li {
+  margin: 7px 0;
+}
+
+
+.legend .list-1 span {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 3px;
+  width: 20px;
+  text-align: center;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.legend .list-2 li {
+  margin: 7px;
+  padding: 3px;
+  /*float: left;*/
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 80%;
+  cursor: pointer;
+  height: 20px;
+}

@@ -1,0 +1,209 @@
+  
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+}
+
+.wrapper {
+  width: 350px;
+  margin: 30px auto;
+  position: relative;
+}
+
+.main li {
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  position: relative;
+  font-size: 18px;
+  float: left;
+  padding: 2px 2px;
+  margin: 0.1px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all .2s ease-in;
+/*
+  -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  -webkit-transition: all .2s ease-in;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+*/
+}
+
+.main li span {
+  display: block;
+  line-height: 1;
+  font-size: 9px;
+  color: black;
+  padding-top: 9px;
+}
+
+/*
+.main .empty {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  cursor: default;
+}
+*/
+
+.deactivate {
+  opacity: 0.5;
+  -webkit-filter: grayscale(70%);
+  filter: grayscale(70%);
+}
+
+
+.date {
+  font-size: 3px;
+  opacity: 0;
+}
+.location {
+  margin-top:4px;
+  font-size: 5px;
+  opacity: 0;
+  }
+
+.main li:hover {
+  -webkit-transform: scale(4);
+          transform: scale(4);
+  z-index: 100;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.main .empty:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  -webkit-transform: none;
+          transform: none;
+}
+
+.main li:hover .date{
+  opacity: 100;
+}
+
+.main li:hover .location{
+  opacity: 100;
+}
+
+.type-0 {
+  background: #fff;
+}
+
+
+/*
+.color-2 {color: #00bcd4;}
+.color-3 {color: #2196f3;}
+.color-4 {color: #673ab7;}
+.color-5 {color: #e91e63;}
+.color-1 {color: #ff9800;}
+.color-1 {color: #4caf50;}
+.color-2 {color: #ffeb3b;}
+.color-6 {color: #f44336;}
+.color-1 {color: #3f51b5;}
+.color-2 {color: #9c27b0;}
+*/
+
+/*Happy*/
+.type-1 {
+  background: #4caf50;
+}
+/*Stressed*/
+.type-2 {
+  background: #ffeb3b;
+}
+/*Angry*/
+.type-3 {
+  background: #B71C1C ;
+}
+/*Content*/
+.type-4 {
+background: #00bcd4 ;
+}
+/*Depressed*/
+.type-5 {
+  background: #17558C ;
+}
+/*Energetic*/
+.type-6 {
+  background: #ff9800;
+}
+/*Guilty*/
+.type-7 {
+  background: #673ab7 ;
+}
+/*Compassionate*/
+.type-8 {
+  background: #EC407A;
+}
+
+.type-9 {
+  background: #dddddd ;
+}
+
+.empty {
+  background: #C0C0C0;
+}
+
+.label {
+  background: #ffffff;
+}
+
+.legend {
+  position: absolute;
+  top: 0;
+  left: 150%;
+  width:350px;
+  padding: 10px;
+  font-size: 11px;
+  background: #f1edec;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  -webkit-box-shadow: inset 0 1px 1px white, inset 0 -5px 3px #dddcdb, 0 0 10px rgba(0, 0, 0, 0.2);
+          box-shadow: inset 0 1px 1px white, inset 0 -5px 3px #dddcdb, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.legend:after {
+  content: "";
+  display: table;
+  clear: table;
+}
+
+.legend ul {
+  float: left;
+}
+
+.legend .list-2 {
+  margin-left: 40px;
+  width: 200px;
+}
+
+.legend .list-1 li {
+  margin: 7px 0;
+}
+
+
+.legend .list-1 span {
+  border: 1px solid black;
+  display: inline-block;
+  padding: 3px;
+  width: 20px;
+  text-align: center;
+  height: 20px;
+  margin-right: 5px;
+}
+
+.legend .list-2 li {
+  margin: 7px;
+  padding: 3px;
+  /*float: left;*/
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  width: 80%;
+  cursor: pointer;
+  height: 20px;
+}

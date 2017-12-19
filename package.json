@@ -1,0 +1,35 @@
+{
+  "name": "2180moods",
+  "version": "1.0.0",
+  "description": "### Mood in Pixels",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mood-in-pixels/2180moods.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mood-in-pixels/2180moods/issues"
+  },
+  "homepage": "https://github.com/mood-in-pixels/2180moods#readme",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mocha": "^4.0.1",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.1",
+    "nightmare": "^2.10.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "sequelize": "^4.28.6"
+  },
+  "devDependencies": {}
+}
