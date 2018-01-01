@@ -9,7 +9,6 @@ module.exports = function(app) {
 
 
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    console.log('we hit the route -----!!!');
     // Sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authorized
     res.json("/members");
@@ -20,7 +19,6 @@ module.exports = function(app) {
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
   app.post("/api/signup", function(req, res) {
-    console.log(req.body);
     db.User.create({
       email: req.body.email,
       username: req.body.username,
@@ -34,30 +32,24 @@ module.exports = function(app) {
   });
 
     app.post("/api/dailymoods", function(req, res) {
-    console.log(req.body);
     db.Mood.create({
-      UserId: req.body.user_id,
       mood_id: req.body.mood_id,
       color: req.body.color,
-      mood_date: req.body.date,
-      DimMoodId: req.body.DimMoodId
-    }).then(function() {
-          console.log(dbMood);
-          res.json(dbMood);
+      mood_date: req.body.mood_date,
+      DimMoodId: req.body.DimMoodId,
+      UserId: req.body.user_id
+    }).then(function(data) {
+          res.json(data);
         });
     });
 
 
     app.get("/api/dailymoods", function(req, res) {
-    console.log(req.body);
     db.Mood.findAll({
       where: {
-      UserId: req.body.user_id,
-      mood_id: req.body.mood_id,
-      color: req.body.color,
-      mood_date: req.body.date,
-      DimMoodId: req.body.DimMoodId
-    }
+      UserId: req.query.user_id
+    },
+    include: [db.Dim_moods]
     }).then(function(data){
           res.json(data);
         }).catch(function(err) {

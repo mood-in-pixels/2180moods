@@ -12,59 +12,37 @@ $(function() {
     $(".member-name").text(data.username);
     user = data.username
     user_id = data.id
-    // startSlide(event);
-  });
-  // Setup Moods for Carousel Function
-  // -------------------------------------------------------------------------------------
-  $.get("/api/mood_data").then(function(data) {
-    for (var i = 0; i < data.length; i++) {
-      var newItem = $("<div>")
-      newItem.addClass("item")
-      var newButton = $("<button>")
-      newButton.addClass("pixel");
-      newButton.css({
-        "background": "radial-gradient(" + data[i].color_one + ", " + data[i].color_two + ")"
+
+    $(".container .picker").attr("date", moment().format("YYYY-MM-DD"))
+
+    $(document).on("click", "a", function() {
+        console.log($(this).attr("date"))
+        $(".modal-content .picker").attr("date", $(this).attr("date"))
       });
-      // newButton.attr("role","submit");
-      // newButton.attr("type","submit");
-      newButton.attr("data_mood_id", data[i].id);
-      newButton.attr("data-mood", data[i].mood_description);
-      newButton.attr("data-color", data[i].color_one);
-      // newButton.attr("id","blue");
-      var newSpan = $("<span>");
-      newSpan.addClass("valence");
-      newSpan.text(data[i].mood_description);
-      newButton.append(newSpan);
-      newItem.append(newButton);
-      $(".carousel").append(newItem)
-    }
-    autoplay();
-  });
-  // Setup Swipe / Carousel Function
-  // -------------------------------------------------------------------------------------
-  function autoplay() {
-    $('.autoplay').slick({
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 5000,
-      swipe: true,
-      swipeToSlide: true,
-      dots: false,
-      arrows: false
+
+
+    $.get("/api/dailymoods", {user_id: user_id}).then(function(data) {
+      var mood_dates = []
+      for (var i = 0; i <   data.length; i++) {
+          mood_dates.push(moment(data[i].mood_date,"YYYY-MM-DD").format("MM/DD/YY"))
+      }
+
+      if($.inArray(moment().format("MM/DD/YY"),mood_dates)>-1) {
+        $("#mood_picker_daily").addClass ("hidden")
+        $("#feelingQuestion").addClass ("hidden")
+      }
+      calendar(2017, data, mood_dates);
     });
-  }
-  // Mouse events *hover (to reveal mood/valence description to users); *click to log mood
-  // -------------------------------------------------------------------------------------
-  $(document).on("mouseover", ".pixel", function() {
-    $(this).find('.valence').fadeIn(500);
-    $(this).find('.valence').fadeOut(1000);
   });
-  $(document).on("click", ".pixel", function() {
+
+
+
+
+  $(document).on("click", ".picker", function() {
     // event.preventDefault();
-    var date = moment().format("MM/DD/YYYY");
-    var mood_id = $(this).attr("data-mood");
-    var color = $(this).attr("data-color");
+    var date = $(this).attr("date");
+    var mood_id = $(this).attr("mood_id");
+    var color = "null" //$(this).attr("data-color");
     var DimMoodId = $(this).attr("data_mood_id")
     var userData = {
       mood_id: mood_id,
@@ -73,20 +51,13 @@ $(function() {
       DimMoodId: DimMoodId
     };
     // When the user clicks a pixel, we run the logDailyMood function to enter mood/color into db
-    logDailyMood(user_id, userData.mood_id, userData.color, userData.mood_date, userData.DimMoodId);
+   logDailyMood(user_id, userData.mood_id, userData.color, userData.mood_date, userData.DimMoodId);
   });
-  // function logDailyMood(user_id, mood_id, color, date, DimMoodId) {
-  //   $.post("/api/dailymoods", {
-  //     user_id: user_id,
-  //     mood_id: mood_id,
-  //     color: color,
-  //     mood_date: date,
-  //     DimMoodId: DimMoodId
-  //   }).then(function(dbMood) {
-  //       console.log(dbMood);
-  //       res.json(dbMood);
-  //     });
-  // };
+
+
+
+
+
   function logDailyMood(user_id, mood_id, color, date, DimMoodId) {
     $.post("/api/dailymoods", {
       user_id: user_id,
@@ -103,18 +74,10 @@ $(function() {
   }
   ////////////////////////////////////////////////////////////////////////////////////
   //////////////         Adding shading on hover for calendar   //////////////////////////
-  // *
-  // *** we need to add a GET route for pulling is all user moods to populate the calendar
-  //  // GET route for getting all of the posts
-  //   app.get("/api/mood_data/:id", function(req, res) {
-  //     db.Mood.findAll({
-  //       where: {
-  //         userId: this.user_id;
-  //       }
-  //     }).then(function(dbMood) {
-  //       res.json(dbMood);
-  //     });
-  //   });
+
+
+
+
   $(function() {
     $('li[class^="cat-"]').mouseover(function() {
       var currentClass = $(this).attr('class').split(' ')[0];
@@ -135,74 +98,132 @@ $(function() {
       $('.main > li').removeClass('deactivate');
     });
   });
+
+
   ////////////////////////////////////////////////////////////////////////////////////
   //////////////         Dynamicaly creating calendar table   ////////////////////////
-  function calendar(year) {
+  function calendar(year, data,mood_dates) {
+
     console.log("creating calendar")
-    for (var monthCount = 0; monthCount < 13; monthCount++) {
+    for (var dayCount = 0; dayCount < 32; dayCount++) {
       var newList = $("<ul>");
       newList.addClass("main");
-      for (var dayCount = 0; dayCount < 32; dayCount++) {
+      for (var monthCount = 0; monthCount < 13; monthCount++) {
         if (dayCount === 0 && monthCount === 0) {
           var newListItem = $("<li>")
-          newListItem.addClass("cEmpty")
-          // newListItem.addClass("cLabel");
+          newListItem.addClass("no-scale")
           newList.append(newListItem)
-        } else if (monthCount === 0) {
+        }
+        else if (monthCount === 0) {
           var newListItem = $("<li>");
-          newListItem.addClass("cEmpty");
+          newListItem.addClass("no-scale");
           var labelDiv = $("<div>")
           labelDiv.addClass("cLabel");
           labelDiv.text(dayCount);
           newListItem.append(labelDiv);
           newList.append(newListItem);
-        } else if (dayCount === 0) {
+        }
+        else if (dayCount === 0) {
           var monthName = moment(monthCount, "M").format("MMM")
           var newListItem = $("<li>");
-          newListItem.addClass("cEmpty");
+          newListItem.addClass("no-scale");
           var labelDiv = $("<div>");
           labelDiv.addClass("cLabel");
           labelDiv.text(monthName.substring(0, 1));
           newListItem.append(labelDiv);
           newList.append(newListItem)
-        } else {
+        }
+        else {
           var newListItem = $("<li>")
           var dateDiv = $("<div>")
           var date = String(monthCount) + "/" + String(dayCount) + "/" + year
           var dateFormat = "M/D/YYYY"
           var convertedDate = moment(date, dateFormat)
+          var convertedDate_2 = moment(date, dateFormat).format("MM/DD/YY")
           var dayOfTheWeek = convertedDate.format("d") // sunday =0
-          if (!convertedDate.isValid()) {
-            newListItem.addClass("cEmpty")
-          } else {
-            dateDiv.addClass("cDate")
-            dateDiv.addClass(date)
-            dateDiv.text(convertedDate.format("MM/DD/YY"));
-            newListItem.append(dateDiv)
-            var location = $("<div>")
-            location.addClass("cLocation")
-            location.text("Chicago, IL")
-            newListItem.append(location)
-            var mood = Math.floor(Math.random() * (9 - 1)) + 1
-            newListItem.addClass("type-" + mood)
-            newListItem.addClass("cat-" + dayOfTheWeek)
-          }
+              if (!convertedDate.isValid()) {
+                newListItem.addClass("no-scale")
+              }
+              else if ($.inArray(convertedDate_2,mood_dates)=== -1) {
+                newListItem.addClass("cEmpty")
+                newListItem.addClass("no-data")
+                newListItem.attr("date", convertedDate_2)
+
+                var mood_selector = $("<a>");
+                mood_selector.addClass("cLocation");
+                mood_selector.addClass("edit");
+                mood_selector.attr("data-toggle","modal")
+                mood_selector.attr("href","#shortModal")
+                mood_selector.attr("date", convertedDate_2)
+                mood_selector.text("Select mood");
+                // mood_selector.attr("date", convertedDate_2)
+                newListItem.append(mood_selector);
+
+
+              } else if ($.inArray(convertedDate_2,mood_dates)> -1){
+                var index = $.inArray(convertedDate_2,mood_dates);
+                dateDiv.addClass("cDate");
+                dateDiv.addClass(date);
+                dateDiv.text(convertedDate_2);
+                newListItem.append(dateDiv);
+
+                var location = $("<div>");
+                location.addClass("cLocation");
+                location.text(data[index].mood_id);
+                newListItem.append(location);
+
+                var mood = data[index].Dim_mood.id;
+                newListItem.addClass("type-" + mood);
+                newListItem.addClass("cat-" + dayOfTheWeek);
+                newListItem.addClass("data");
+                newListItem.css({
+                    "background": "radial-gradient(" + data[index].Dim_mood.color_one + ", " + data[index].Dim_mood.color_two + ")"
+                  });
+              }
           newList.append(newListItem)
         }
       }
       $(".wrapper").append(newList)
+
     }
   }
-  calendar(2017);
-  $(window).on("orientationchange", function(event) {
-    if (window.innerHeight > window.innerWidth) {
-      $(".row").addClass("hidden")
-      $(".carousel").addClass("hidden")
-      $(".wrapper").removeClass("hidden")
-    } else {
-      $(".wrapper").addClass("hidden")
-      $(".row").removeClass("hidden")
-      $(".carousel").removeClass("hidden")
-    }
-  });
+
+
+
+
+  // $(window).on("orientationchange", function(event) {
+  //   if (window.innerHeight > window.innerWidth) {
+  //     $(".row").addClass("hidden")
+  //     $(".carousel").addClass("hidden")
+  //     $(".wrapper").removeClass("hidden")
+  //   } else {
+  //     $(".wrapper").addClass("hidden")
+  //     $(".row").removeClass("hidden")
+  //     $(".carousel").removeClass("hidden")
+  //   }
+  // });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 });

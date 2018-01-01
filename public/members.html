@@ -53,27 +53,76 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Welcome <span class="member-name"></span></h2>
-        <h5>How are you feeling today?</h5>
+        <h5 id="feelingQuestion">How are you feeling today?</h5>
       </div>
     </div>
-    <div class="carousel slide autoplay" id="carousel" role="form">
-      <!-- This section will be populated by JS Mood Selector -->
-    </div><br>
-    <br>
-    <br>
+
+    <div class="colorPicker" id="mood_picker_daily">
+      <input type="radio"/>
+      <label class="red picker" mood_id="Angry" data_mood_id="3">Angry</label>
+      <input type="radio"/>
+      <label class="orange picker" mood_id="Energetic" data_mood_id="6">Energetic</label>
+      <input type="radio"/>
+      <label class="yellow picker" mood_id="Stressed" data_mood_id="2">Stressed</label>
+      <input type="radio"/>
+      <label class="green picker" mood_id="Happy" data_mood_id="1">Happy</label>
+      <input type="radio"/>
+      <label class="blue picker" mood_id="Depressed" data_mood_id="5">Depressed</label>
+      <input type="radio"/>
+      <label class="indigo picker" mood_id="Guilty" data_mood_id="7">Guilty</label>
+      <input type="radio"/>
+      <label class="violet picker" mood_id="Compassionate" data_mood_id="8">Compassionate</label>
+    </div>
+
+
     <div class="wrapper" id="spectrum">
       <!-- This section will be populated by JS Calendar -->
     </div>
+
+
+
+
+
+
+
+
   </div>
+  <div id="shortModal" class="modal modal-wide fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <h3>So you didn't select your mood yet?</h3>
+          <h4>Pick one, its free!</h4>
+        <div class="colorPicker">
+          <input type="radio"/>
+          <label class="red picker" mood_id="Angry" data_mood_id="3">Angry</label>
+          <input type="radio"/>
+          <label class="orange picker" mood_id="Energetic" data_mood_id="6">Energetic</label>
+          <input type="radio"/>
+          <label class="yellow picker" mood_id="Stressed" data_mood_id="2">Stressed</label>
+          <input type="radio"/>
+          <label class="green picker" mood_id="Happy" data_mood_id="1">Happy</label>
+          <input type="radio"/>
+          <label class="blue picker" mood_id="Depressed" data_mood_id="5">Depressed</label>
+          <input type="radio"/>
+          <label class="indigo picker" mood_id="Guilty" data_mood_id="7">Guilty</label>
+          <input type="radio"/>
+          <label class="violet picker" mood_id="Compassionate" data_mood_id="8">Compassionate</label>
+        </div>
+        <br><br><br><br>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
 
   <!-- jQuery 3.2.1-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!-- Moment.js-->
-  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script> 
-  <!-- Slick JS --> 
-  <script src="http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script> 
-  <!-- Custom JS --> 
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <!-- Slick JS -->
+  <script src="http://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+  <!-- Custom JS -->
   <script src="js/members.js" type="text/javascript"></script>
-
+  <script src='http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js'></script>
 </body>
 </html>
