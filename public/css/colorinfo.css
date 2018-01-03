@@ -2,7 +2,7 @@
 body {
   font-family: 'Roboto', sans-serif;
 }
-.container {
+.main {
   margin-top: 30px;
 }
 /* Remove the navbar's default rounded borders and increase the bottom margin */ 
@@ -17,10 +17,15 @@ footer {
   padding: 25px;
 }
 .color-panel {
-  height: 250px;
-  width: 100%;
-  border: 1px solid white;
+  height: 150px;
+  width: 60%;
+  margin: 0px auto;
   border-radius: 10px;
+}
+.color-panel:hover {
+  opacity: .8;
+
+  box-shadow: 10px 10px 42px -16px rgba(0,0,0,0.75);
 }
 .panel-footer {
   border: 1px solid white;
@@ -36,14 +41,8 @@ footer {
   font-size: 26px;
   letter-spacing: 2px;
 }
-h1{
-  text-align: center;
-  text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
-  font-size: 46px;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
+
+
 .color-panel, #red {
   background: linear-gradient(to bottom, #fff, #ef9a9a,#e57373,#ef5350,#f44336,#e53935,#d32f2f,#c62828,#b71c1c);
 }
