@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>2180moods</title><!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <meta content="2180moods - Mobile Mood Tracking App" name="description">
+
+  <!--CSS // Bootstrap 4.0--> 
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
+  <!--CSS // Bootstrap 3.3.7-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--jQuery 3.2.1 --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <style>
+    body {
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar"> 
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">2180m</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li>
+          <a href="/members">Home</a>
+        </li>
+        <li>
+          <a href="/colorinfo.html">Learn in Color</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        </li>
+        <li>
+          <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+        <li>
+          <a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+<div class="wrapper" id="spectrum"></div>
+
+<div class="container">
+  <canvas width="60" height="60" id="canvas"></canvas>
+</div>
+<!-- Custom JS for spectrum mousefollow -->
+<script type="text/javascript">
+
+var width;
+var height;
+var pixels = [];
+var coloredPixels = [];
+var colors = ['steelblue', 'goldenrod',  'dodgerblue', 'crimson', 'orchid', 'red', 'teal', 'black', 'gainsboro'];
+var currentPixel = 0;
+var cursorPosition = { x: window.innerWidth/1, y: window.innerHeight/1 };
+
+// define context and canvas variables
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
+
+var outlineGrid = () => {
+  ctx.clearRect(0, 0, width, height);
+ 
+  // for loop to animate trailing
+  for (var i = 0, l = pixels.length; i < l; i++) {
+    pixels[i][10] = 0;
+  }
+  
+  for (var i = 0, l = coloredPixels.length; i < l; i++) {
+    var pix = Math.floor(coloredPixels[i].y/10)*(Math.floor(width/10)+1) + Math.floor(coloredPixels[i].x/10);
+    if (pixels[pix]) {
+      pixels[pix][4] = coloredPixels[i].color;
+      pixels[pix][5] = coloredPixels[i].alpha;
+    }
+    
+    if (coloredPixels[i].alpha > 0) 
+        coloredPixels[i].alpha -= 0.008;
+    if (coloredPixels[i].alpha < 0) 
+        coloredPixels[i].alpha = 0;
+        coloredPixels[i].x += coloredPixels[i].vx;
+        coloredPixels[i].y += coloredPixels[i].vy;
+  }
+  
+  // Incorporate canvas reference 
+  for (var i = 0, l = pixels.length; i < l; i++) {
+    ctx.globalAlpha = 1;
+    ctx.fillStyle = '#fff';
+    ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
+    ctx.globalAlpha = pixels[i][5];
+    ctx.fillStyle = pixels[i][4];
+    ctx.fillRect(pixels[i][0], pixels[i][1], pixels[i][2], pixels[i][3]);
+  }
+}
+
+var resize = () => {
+  width = window.innerWidth;
+  height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+  pixels = [];
+  for (var y = 0; y < height/10; y++) {
+    for (var x = 0; x < width/10; x++) {
+      pixels.push([x*10, y*10, 8, 8, '#fff', 1]);
+    }
+  }
+}
+
+var outline = () => {
+  launchPixel();
+  launchPixel();
+  outlineGrid();
+  requestAnimationFrame(outline);
+}
+
+var initColoredPixels = () => {
+  for (var i = 0; i < 300; i++) {
+    coloredPixels.push({
+      x: width/2,
+      y: height/2,
+      alpha: 0,
+      color: colors[i%5],
+      vx: -1 + Math.random()*2,
+      vy: -1 + Math.random()*2
+    })
+  }
+}
+
+var launchPixel = () => {
+  coloredPixels[currentPixel].x = cursorPosition.x;
+  coloredPixels[currentPixel].y = cursorPosition.y;
+  coloredPixels[currentPixel].alpha = 1;
+  
+  currentPixel++;
+  if (currentPixel > 299) currentPixel = 0;
+}
+
+resize();
+initColoredPixels();
+outline();
+
+window.addEventListener('resize', resize);
+window.addEventListener('mousemove', function(e) {
+  cursorPosition.x = e.pageX;
+  cursorPosition.y = e.pageY;
+})
+
+var touchMove = (e) => {
+  e.preventDefault();
+  cursorPosition.x = e.touches[0].pageX;
+  cursorPosition.y = e.touches[0].pageY;
+}
+
+document.addEventListener('touchstart', touchMove);
+document.addEventListener('touchmove', touchMove);
+
+
+</script>
+
+</body>
+</html>
