@@ -60,7 +60,27 @@
 </div>
 <!-- Custom JS for spectrum mousefollow -->
 <script type="text/javascript">
-
+function logDailyMood(user_id, mood_id, color, date, DimMoodId) {
+    $.post("/api/dailymoods", {
+      user_id: user_id,
+      mood_id: mood_id,
+      color: color,
+      mood_date: date,
+      DimMoodId: DimMoodId
+    }).then(function() {
+      window.location.replace(data);
+      // If there's an error, log the error
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
+  var mood = data[index].Dim_mood.id;
+                newListItem.addClass("type-" + mood);
+                newListItem.addClass("cat-" + dayOfTheWeek);
+                newListItem.addClass("data");
+                newListItem.css({
+                    "background": "radial-gradient(" + data[index].Dim_mood.color_one + ", " + data[index].Dim_mood.color_two + ")"
+                  });
 var width;
 var height;
 var pixels = [];
