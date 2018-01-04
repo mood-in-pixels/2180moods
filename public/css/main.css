@@ -3,9 +3,19 @@ body {
   font-family: 'Roboto', sans-serif;
   color: black;
 }
+.navbar, a{
+    color: black;
+}
 .container{
     width: 100%;
     height:800px;
+}
+.help {
+  font-size: .7em;
+}
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
 }
 .canvas-interactive-wrapper {
     position: relative;
