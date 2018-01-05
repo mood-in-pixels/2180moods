@@ -5,7 +5,6 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <meta content="2180moods - Mobile Mood Tracking App" name="description">
-
   <!--CSS // Bootstrap 4.0--> 
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> -->
   <!--CSS // Bootstrap 3.3.7-->
@@ -13,9 +12,11 @@
   <!--jQuery 3.2.1 --> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <style>
+   @import url('https://fonts.googleapis.com/css?family=Roboto:100,300');
     body {
       background-color: #fff;
       overflow: hidden;
+      font-family: 'Roboto', sans-serif
     }
 
     canvas {
@@ -23,71 +24,67 @@
       width: 100%;
       height: 100%;
     }
+    a {
+      color: black
+    }
   </style>
 
 </head>
 <body>
   <nav class="navbar"> 
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">2180m</a>
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">2180m</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/members">Home</a>
+          </li>
+          <li>
+            <a href="colorinfo.html">Colors</a>
+          </li>
+          <li>
+            <a href="colorinfo.html">Habits</a>
+          </li>
+          <li>
+            <a href="tip-articles.html">Articles</a>
+          </li>
+          <li>
+            <a href="spectrum-ex.html">Spectrum</a>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+          </li>
+          <li>
+            <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          </li>
+          <li>
+            <a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+          </li>
+        </ul>
       </div>
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="/members">Home</a>
-        </li>
-        <li>
-          <a href="/colorinfo.html">Learn in Color</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-        </li>
-        <li>
-          <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
-        <li>
-          <a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-<div class="wrapper" id="spectrum"></div>
+    </nav>
+<div class="container-fluid">
+  <h1 class="text-center">Explore the 2180m Pixel Spectrum</h1>
+</div>
 
-<div class="container">
-  <canvas width="60" height="60" id="canvas"></canvas>
+<div class="container-fluid">
+  <canvas width="80" height="80" id="canvas"></canvas>
 </div>
 <!-- Custom JS for spectrum mousefollow -->
 <script type="text/javascript">
-function logDailyMood(user_id, mood_id, color, date, DimMoodId) {
-    $.post("/api/dailymoods", {
-      user_id: user_id,
-      mood_id: mood_id,
-      color: color,
-      mood_date: date,
-      DimMoodId: DimMoodId
-    }).then(function() {
-      window.location.replace(data);
-      // If there's an error, log the error
-    }).catch(function(err) {
-      console.log(err);
-    });
-  }
-  var mood = data[index].Dim_mood.id;
-                newListItem.addClass("type-" + mood);
-                newListItem.addClass("cat-" + dayOfTheWeek);
-                newListItem.addClass("data");
-                newListItem.css({
-                    "background": "radial-gradient(" + data[index].Dim_mood.color_one + ", " + data[index].Dim_mood.color_two + ")"
-                  });
+
 var width;
 var height;
 var pixels = [];
 var coloredPixels = [];
-var colors = ['steelblue', 'goldenrod',  'dodgerblue', 'crimson', 'orchid', 'red', 'teal', 'black', 'gainsboro'];
+
+var colors = [ '#ff3e05', '#057fff', '#ff8d05', '#ecca05', '#7500ca', '#cc6fcc', '#40af04', '#fff3e0', '#ffe0b2', '#fbe9e5', '#F8BBD0', '#fce4ec', '#ffcdd2', '#FFF9C4', '#f9fbe7','#b2ebf2', '#e0f7fa', '#bbdefb', '#e8eaf6', '#ede7f6', '#d1c4e9',  '#e8f5e9', '#a7ffeb', '#e0f2f1', '#F2f2f2'];
+// ['steelblue', 'goldenrod',  'dodgerblue', 'crimson', 'orchid', 'red', 'teal', 'black', 'gainsboro'];
 var currentPixel = 0;
-var cursorPosition = { x: window.innerWidth/1, y: window.innerHeight/1 };
+var cursorPosition = { x: window.innerWidth/2, y: window.innerHeight/2 };
 
 // define context and canvas variables
 var canvas = document.getElementById('canvas');

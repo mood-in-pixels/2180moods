@@ -20,36 +20,42 @@
   <!-- Custom JS -->
 </head>
 <body>
-  <nav class="navbar">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">2180m</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="/members">Home</a> 
-        </li>
-        <li>
-          <a href="tip-articles.html">Learn</a>
-        </li>
-        <li>
-          <a href="#">Tips</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-        </li>
-        <li>
-          <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
-        <li>
-          <a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-<div class="container-fluid info-main">
+  <nav class="navbar"> 
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">2180m</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/members">Home</a>
+            </li>
+            <li>
+              <a href="colorinfo.html">Colors</a>
+            </li>
+            <li>
+              <a href="#habits-main">Habits</a>
+            </li>
+            <li>
+              <a href="tip-articles.html">Articles</a>
+            </li>
+            <li>
+              <a href="spectrum-ex.html">Spectrum</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            </li>
+            <li>
+              <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+            <li>
+              <a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+<div class="container-fluid ">
   <div class="container-fluid">
 
     <div class="header text-center">
@@ -160,7 +166,10 @@
     </div>
   </div>
 </div>
-  <link href="css/tips.css" rel="stylesheet">
+
+  <br><br><br>
+  <div class="container-fluid divider"></div>
+  <br><br><br>
   <!-- start mood tips -->
 
   <div class="container-fluid tips-main">
@@ -172,10 +181,10 @@
 
   <br><br>
   
-  <div class="container" id="tips-main"> 
+  <div class="container-fluid" id="habits-main"> 
     
-    <div class="row col-sm-12 justify-content-between">
-    
+    <div class="row col-sm-12">
+    <div class="col-sm-1"></div>
       <div class="card col-sm-3 inline" id="green-tip">
         <h3 class="card-header">Yoga</h3>
         <div class="card-body">
@@ -188,16 +197,13 @@
           <p class="card-text">
         Done right, yoga can give you a resistance workout, more flexibility, and stress-busting skills. If you're in a fast­paced class you might even get some cardio in. </p>
         </div>
-        
         <!-- <ul class="list-group list-group-flush">
-          
           <li class="list-group-item">Content</li>
           <li class="list-group-item">Happy</li>
           <li class="list-group-item">Stressed</li>
         </ul> -->
-        
       </div>
-    </div>
+    </div> <!-- end card -->
     <div class="card col-sm-3 inline" id="teal-tip">
         <h3 class="card-header">Volunteer</h3>
         <div class="card-body">
@@ -209,16 +215,14 @@
         <div class="card-body">
           <p class="card-text">Helping others can benefit you more than you think. Regular volunteering can boost self-esteem, help you meet new people, and even reduce your risk of depression.  </p>
         </div>
-
         <!-- <ul class="list-group list-group-flush">
-          
           <li class="list-group-item">Angry</li>
           <li class="list-group-item">Compassionate</li>
           <li class="list-group-item">Depressed</li>
         </ul>
          -->
       </div>
-    </div>
+    </div> <!-- end card -->
     <div class="card col-sm-3 inline" id="blue-tip">
         <h3 class="card-header">Work out</h3>
         <div class="card-body">
@@ -231,41 +235,37 @@
           <p class="card-text">
         Starting a fitness routine between the ages of 20 and 40 that includes three sweat sessions a week could reduce one's risk of depression by about 16 percent. </p>
         </div>
-    
         <!-- <ul class="list-group list-group-flush">
-          
           <li class="list-group-item">Depressed</li>
           <li class="list-group-item">Happy</li>
           <li class="list-group-item">Energy</li>
-        </ul> -->
-        
+        </ul> -->   
       </div>
-    </div>
+    </div><!-- end card -->
+    <div class="col-sm-1"></div>
+  </div><!-- end row -->
+
+  <div class="row col-sm-12">
+    <div class="col-sm-1"></div>
       <div class="card col-sm-3 inline" id="purple-tip">
         <h3 class="card-header">Gratitude</h3>
-        <div class="card-body">
-          <h5 class="card-title">Be grateful
-            <a class="card-link" href="tip-articles.html">more</a>
-          </h5>
+          <div class="card-body">
+            <h5 class="card-title">Be grateful
+              <a class="card-link" href="tip-articles.html">more</a>
+            </h5>
+          </div>
+          <div alt="Card image" class="card-color" >
+          <div class="card-body">
+            <p class="card-text">
+          When things aren't going your way, it's easy to lose sight of the good stuff. Think of one thing you're grateful for each day. It'll improve you're optimistism and stress management.  </p>
+          </div>
+  <!-- <ul class="list-group list-group-flush">
+            <li class="list-group-item">Guilty</li>
+            <li class="list-group-item">Compassionate</li>
+            <li class="list-group-item">Stressed</li>
+          </ul> -->
         </div>
-        <div alt="Card image" class="card-color" >
-        <div class="card-body">
-          <p class="card-text">
-        When things aren't going your way, it's easy to lose sight of the good stuff. Think of one thing you're grateful for each day. It'll improve you're optimistism and stress management.  </p>
-        </div>
-<!-- 
-        <ul class="list-group list-group-flush">
-          
-          <li class="list-group-item">Guilty</li>
-          <li class="list-group-item">Compassionate</li>
-          <li class="list-group-item">Stressed</li>
-        </ul> -->
-        
-      </div>
-    </div>
-  </div>
-    <div class="row col-sm-12 justify-content-between">
-    
+      </div><!-- end card -->
       <div class="card col-sm-3 inline" id="pink-tip">
         <h3 class="card-header">Sleep</h3>
         <div class="card-body">
@@ -278,17 +278,15 @@
           <p class="card-text">
         Most adults need around 7 or 8 hours of solid sleep a night to feel good, focus on work, and stay healthy. If you need more sleep, try to get to bed earlier, and don't exercise or drink caffeine or eat big meals before bed.  </p>
         </div>
-
        <!--  <ul class="list-group list-group-flush">
-          
           <li class="list-group-item">Focus</li>
           <li class="list-group-item">Stressed</li>
           <li class="list-group-item">Energetic</li>
         </ul>
          -->
-      </div>
-    </div>
-    <div class="card col-sm-3 inline" id="red-tip">
+        </div>
+      </div><!-- end card -->
+      <div class="card col-sm-3 inline" id="red-tip">
         <h3 class="card-header">Write</h3>
         <div class="card-body">
           <h5 class="card-title">Jot something down every day
@@ -300,16 +298,17 @@
           <p class="card-text">
         Whether it's a list to help managedaily stressors, a simple record of your day, a way to work out your feelings, or a creative outlet, journaling can help you better understand yourself, your body, and your place in the world. </p>
         </div>
-
         <!-- <ul class="list-group list-group-flush">
-          
           <li class="list-group-item">Compassionate</li>
           <li class="list-group-item">Content</li>
           <li class="list-group-item">Depressed</li>
         </ul> -->
-        
       </div>
-    </div>
+    </div> <!-- end card -->
+    <div class="col-sm-1"></div>
+  </div><!-- end row -->
+  <div class="row col-sm-12">  
+    <div class="col-sm-1"></div>
     <div class="card col-sm-3 inline" id="orange-tip">
         <h3 class="card-header">Eat well</h3>
         <div class="card-body">
@@ -323,15 +322,13 @@
         Investing time and energy into understanding what your body needs is essential to our health and well-being. Be mindful of your eating habits. Honor your body's nutritional needs and aim for a healthy, balanced diet.</p>
         </div>
 
-        <!-- <ul class="list-group list-group-flush">
-          
+        <!-- <ul class="list-group list-group-flush">          
           <li class="list-group-item">Energetic</li>
           <li class="list-group-item">Stressed</li>
           <li class="list-group-item">Content</li>
-        </ul> -->
-        
+        </ul> -->       
       </div>
-    </div>
+    </div><!-- end card -->
       <div class="card col-sm-3 inline" id="yellow-tip">
         <h3 class="card-header">Meditate</h3>
         <div class="card-body">
@@ -345,22 +342,40 @@
         Find your bliss, whether it's meditation, prayer, or art ... that mental calm and focus can help your body too, reducing stress hormones and even lowering blood pressure. Adhereing to daily practice optimizes these benefits. 
          </p>
         </div>
-
-        <!-- <ul class="list-group list-group-flush">
-          
+        <!-- <ul class="list-group list-group-flush">        
           <li class="list-group-item">Stressed</li>
           <li class="list-group-item">Content</li>
           <li class="list-group-item">Focus</li>
         </ul> -->
-        
       </div>
-    </div>
-  </div>
+    </div><!-- end card -->
+      <div class="card col-sm-3 inline" id="yellow-tip">
+        <h3 class="card-header">Meditate</h3>
+        <div class="card-body">
+          <h5 class="card-title">Meditate once a day
+            <a class="card-link" href="tip-articles.html">more</a>
+          </h5>
+        </div>
+        <div alt="Card image" class="card-color">
+        <div class="card-body">
+          <p class="card-text">
+        Find your bliss, whether it's meditation, prayer, or art ... that mental calm and focus can help your body too, reducing stress hormones and even lowering blood pressure. Adhereing to daily practice optimizes these benefits. 
+         </p>
+        </div>
+        <!-- <ul class="list-group list-group-flush">  
+          <li class="list-group-item">Stressed</li>
+          <li class="list-group-item">Content</li>
+          <li class="list-group-item">Focus</li>
+        </ul> -->
+      </div>
+    </div> <!-- end card -->
+    <div class="col-sm-1"></div>
+  </div> <!-- end row -->
   
 </div>
 </div>
   <footer class="container-fluid text-center">
-    <p>2180m</p><br>
+    <p>2180m (c)</p>
     <p class="help">*If you're feeling down and need additional help, <a href="http://www.mentalhealthamerica.net/mental-health-screen/patient-health">click here.</a></p>
   </footer>
 </body>

@@ -5,8 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
   <meta content="2180moods - Mobile Mood Tracking App" name="description">
-  <!--CSS // Bootstrap 3.3.7-->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <!--jQuery 3.2.1 --> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <!--Custom CSS-->
@@ -17,35 +21,42 @@
   <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
+
   <nav class="navbar"> 
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">2180m</a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li>
-          <a href="/members">Home</a>
-        </li>
-        <li>
-          <a href="/spectrum-ex.html">Spectrum</a>
-        </li>
-        <li>
-          <a href="/colorinfo.html">Learn in Color</a>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-          <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
-        </li>
-        <li>
-          <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
-        <li>
-          <a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">2180m</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/members">Home</a>
+            </li>
+            <li>
+              <a href="colorinfo.html">Colors</a>
+            </li>
+            <li>
+              <a href="#habits-main">Habits</a>
+            </li>
+            <li>
+              <a href="tip-articles.html">Articles</a>
+            </li>
+            <li>
+              <a href="spectrum-ex.html">Spectrum</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            </li>
+            <li>
+              <a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+            <li>
+              <a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     <div class="container gradient">
       
       <div class="canvas-interactive-wrapper">
@@ -64,9 +75,9 @@
       </div>
     </div>
 
-        <footer>
-          <p>2180m</p>
-          <p><a href="http://www.mentalhealthamerica.net/mental-health-screen/patient-health">Find Help</a></p>
-        </footer>
+    <footer class="container-fluid text-center">
+      <p>2180m</p>
+      <p class="help">*If you're feeling down and need additional help, <a href="http://www.mentalhealthamerica.net/mental-health-screen/patient-health">click here.</a></p>
+    </footer>
   </body>
 </html>

@@ -1,11 +1,18 @@
- @import url('https://fonts.googleapis.com/css?family=Lato|Roboto:300,400');
+ @import url('https://fonts.googleapis.com/css?family=Roboto:300,400');
+ h1, h2, h3, h4, h5, h6, p, li, a{
+  font-family: 'Roboto', 'helvetica neue';
+}
 .navbar a {
   color:black;
 }
   body {
     font-size: 16px;
     text-align: justify;
+    font-family: 'Roboto', 'helvetica neue';
   }
+  .divider{ 
+  x
+   }
   .blockquote {
     font-size: 15px;
     font-style: italic;
@@ -21,6 +28,10 @@
   .backdrop{
     background: linear-gradient(#fff, #f2f2f2,#e3e3e3,#c9c9c9,#d3d3d3, #e7e7e7, #f2f2f2, #fff);
   }
+  .backdrop-article{
+    background: linear-gradient( #fff, #fff3e0, #ffe0b2, #fbe9e5, #F8BBD0, #fce4ec, #ffcdd2, #FFF9C4, #f9fbe7,#b2ebf2, #e0f7fa, #bbdefb, #e8eaf6, #ede7f6, #d1c4e9, #fff, #e8f5e9, #a7ffeb, #e0f2f1, #fff, #F2f2f2);
+  }
+
 .row{
   margin-bottom: 30px;
 }
@@ -33,21 +44,22 @@
 }
 /* Add a gray background color and some padding to the footer */
 footer {
-  background-color: #f2f2f2;
+  background-color: #fff;
   padding: 25px;
 }
 div.card {
     border-radius: 10px;
     border: 5px solid rgba(255,255,255,.1);
-
+    height: 100%;
 }
 .card-text, .card-footer {
-  font-family: 'Lato';
+  font-family: 'Roboto', 'helvetica neue';
   padding: 7px;
   color: black;
 }
 .card-link{
-  color: dodgerblue;
+  color: navy;
+  text-decoration: underline;
   font-size:.8em;
   float: right;
 }
@@ -75,8 +87,7 @@ div.card {
 }
 .card-text{
   font-size: .8em;
-/*  letter-spacing: .02em;
-*/  line-height: 1.5em;
+  line-height: 1.5em;
 }
 /*li.list-group-item {
   border:.2px solid white;
@@ -94,8 +105,7 @@ div.card {
 .card-title {
   padding-top: 5px;
   color: black;
-/*  font-style: italic;
-*/  font-size:.7em;
+  font-size:.7em;
 }
 .help {
   font-size: .7em;
@@ -103,40 +113,53 @@ div.card {
 h1 {
   font-weight: bolder;
 }
-h1, h2, h3, h4, h5, h6, p, li, a{
-  font-family: 'Roboto', 'lato', 'helvetica neue';
-}
+
 #red-tip {
   background: linear-gradient(#fff, #ef9a9a, #e57373, #ef9a9a, #fff);
+  padding:10px;
+  margin:10px;
 }
 
 #pink-tip  {
   background: linear-gradient(#fff, #f48fb1,#f06292, #f06292, #f48fb1, #fff);
-  
+  padding:10px;
+  margin:10px; 
 }
 
 #purple-tip {
   background: linear-gradient(#fff, #ce93d8, #ba68c8,#ba68c8, #ce93d8, #fff);
+  padding:10px;
+  margin:10px;
 }
 
 #blue-tip {
   background: linear-gradient(#fff, #90caf9,#64b5f6, #64b5f6, #90caf9, #fff);
+  padding:10px;
+  margin:10px;
 }
 
 #teal-tip {
   background: linear-gradient(#fff, #80deea, #4dd0e1,#4dd0e1, #80deea, #fff);
+  padding:10px;
+  margin:10px;
 }
 
 #green-tip {
   background: linear-gradient(#fff, #a5d6a7, #81c784,#81c784, #a5d6a7, #fff);
+  padding:10px;
+  margin:10px;
 }
 
 #yellow-tip {
   background: linear-gradient(#fff, #fff59d,#fff176, #fff176, #fff59d, #fff);
+  padding:10px;
+  margin:10px;
 }
 
 #orange-tip  {
   background: linear-gradient(#fff, #ffcc80, #ffb74d,#ffb74d, #ffcc80, #fff);
+  padding:10px;
+  margin:10px;
 }
 
 .info-main {
@@ -145,7 +168,7 @@ h1, h2, h3, h4, h5, h6, p, li, a{
   color: #1F2529FF;
 }
 .tips-main {
-  background: linear-gradient(#fff, #fff, #fff, #f2f2f2);
+  background-color: #fff;
 }
 
 /* Add a gray background color and some padding to the footer */
@@ -158,6 +181,7 @@ footer {
   width: 60%;
   margin: 0px auto;
   border-radius: 80px;
+  box-shadow: 10px 10px 42px rgba(0,0,0,0.9);
 }
 .color-panel:hover {
   border-radius: 0px;
@@ -165,12 +189,13 @@ footer {
   box-shadow: 10px 10px 42px -16px rgba(0,0,0,0.75);
 }
 .panel-foot {
-  padding-top: 10px;
+  padding-top: 15px;
   color: #1F2529FF;
-}
-.panel-foot, .panel{
+  font-family: 'helvetica neue';
+  background-color: transparent;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
+}
+.panel{
   background-color: transparent;
   font-size: 15px;
 }
@@ -178,7 +203,7 @@ footer {
 .panel-heading {
   text-align: center;
   text-transform: uppercase;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', 'helvetica neue';
   font-size: 26px;
   letter-spacing: 2px;
 }
