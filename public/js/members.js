@@ -8,12 +8,14 @@ $(function() {
   // creating global variables that will be populated with authentification check
   var user;
   var user_id;
+  var defaultYear = 2018
 
 // authentification request to database
   $.get("/api/user_data").then(function(data) {
     $(".member-name").text(data.username);
     user = data.username
     user_id = data.id
+
 
 
 
@@ -25,13 +27,27 @@ $(function() {
           mood_dates.push(moment(data[i].mood_date,"YYYY-MM-DD").format("MM/DD/YY"))
       }
       // after retrieving data calendar is generated dynamicaly with all user data. default calendar year is 2017
-      calendar(2017, data, mood_dates);
+      $("#year").text(defaultYear)
+      calendar(defaultYear, data, mood_dates);
 
 // after retrieving user data, system checks if user has a selection for today. if selection was made, system hides section that allows user to select again.
       if($.inArray(moment().format("MM/DD/YY"),mood_dates)>-1) {
         $("#mood_picker_daily").addClass ("hidden")
         $("#feelingQuestion").addClass ("hidden")
       }
+
+      $(document).on("click", "#prev", function() {
+          defaultYear = defaultYear -1
+          $("#year").text(defaultYear)
+          calendar(defaultYear, data, mood_dates);
+        });
+
+      $(document).on("click", "#next", function() {
+          defaultYear = defaultYear +1
+          $("#year").text(defaultYear)
+          calendar(defaultYear, data, mood_dates);
+        });
+
     });
 
 // there are two sets of mood pickers, one is presented at the begining if user did not make a selection yet,
@@ -122,7 +138,7 @@ $(function() {
 
 
   function calendar(year, data,mood_dates) {
-
+    $(".wrapper").empty();
     console.log("creating calendar")
     for (var dayCount = 0; dayCount < 32; dayCount++) { /// first it loops through all 31 days in calendar plus title of each day (rows). Item 0 represents label row
       var newList = $("<ul>");  // for each row we create an unordered list

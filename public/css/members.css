@@ -42,10 +42,11 @@
 footer {
   background-color: #fff;
   padding: 25px;
-  
+
 }
 .wrapper {
   width: 50%;
+  margin: auto;
   float: center;
 }
 
@@ -121,6 +122,10 @@ footer {
 background-color: white;
     }
 
+  #yearSelector {
+      font-size: 2em;
+      padding-top: 20px;
+    }
 
 /*////////////////////////////////////////////////////////////////////////*/
 /*Section that specifies how file should act when user hovers on list item*/
