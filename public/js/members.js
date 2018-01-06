@@ -82,6 +82,7 @@ $(function() {
 
 // after data is captured, api request is submitted via below function
    logDailyMood(user_id, userData.mood_id, userData.color, userData.mood_date, userData.DimMoodId);
+   location.reload();
   });
 
 
