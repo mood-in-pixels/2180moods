@@ -1,0 +1,81 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: linear-gradient(#111, #222);
+  background: -webkit-linear-gradient(#111, #222);
+  background: -moz-linear-gradient(#111, #222);
+  background: -o-linear-gradient(#111, #222);
+}
+
+#colorwheel {
+  margin: 20px auto;
+  position: relative;
+  width: 640px;
+  height: 640px;
+}
+
+.colorWheelLine {
+  position: absolute;
+  top: 310px;
+  left: 420px;
+  width: 310px;
+  height: 20px
+  -ms-transform-origin: -100px 50%;
+  -webkit-transform-origin: -100px 50%;
+  -moz-transform-origin: -100px 50%;
+  -o-transform-origin: -100px 50%;
+  transform-origin: -100px 50%;
+  opacity: 0.1;
+}
+
+.colorWheelLine:hover{
+  opacity: 1;
+}
+
+.selected {
+  opacity: 1;
+}
+
+
+.emptyLine {
+  display:inline-block;
+  width: 50px;
+}
+
+.moodName {
+  display:inline-block;
+  width: 60px;
+  position: absolute;
+}
+
+*:focus {
+  outline: none;
+}
+
+.btn-drop {
+  appearance: none;
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  position: absolute;
+}
+
+.water-drop {
+  appearance: none;
+  background-color: red;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  font-weight: 700;
+  transition: border-radius 200ms ease-in-out;
+  cursor: pointer;
+
+
+}
+.btn-drop:focus .water-drop {
+  border-top-right-radius:0px;
+}
+
